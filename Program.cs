@@ -26,8 +26,6 @@ namespace Assignment1_F19
             Console.WriteLine(r5);
 
             solvePuzzle();
-            Console.ReadKey();
-
         }
 
         /*
@@ -38,10 +36,10 @@ namespace Assignment1_F19
          */
         public static void printSelfDividingNumbers(int x, int y)
         {
-            int temp, digit;       
-            bool flag;
             try
             {
+                int temp, digit;
+                bool flag;
                 for (int i = x; i <= y; i++)
                 {
                     flag = true;
@@ -55,7 +53,7 @@ namespace Assignment1_F19
                         }
                         temp = temp / 10;
                     }
-                    if (flag)                    
+                    if (flag)
                         Console.WriteLine("" + i + " is a self dividing no. ");
                 }
             }
@@ -63,18 +61,31 @@ namespace Assignment1_F19
             {
                 Console.WriteLine("Exception occured while computing printSelfDividingNumbers()");
             }
+            Console.WriteLine();
         }
 
         public static void printSeries(int n)
         {
             try
             {
-                // Write your code here
+                for (int i = 0, c = 1; i < n; i++)
+                {
+                    for (int j = 0; j < i && c <= n; j++, c++)
+                    {
+                        Console.Write(i);
+                        if (c != n) // to avoid the last comma
+                        {
+                            Console.Write(", ");
+                        }
+                    }
+                }
             }
             catch
             {
                 Console.WriteLine("Exception occured while computing printSeries()");
             }
+            Console.WriteLine();
+
         }
 
         public static void printTriangle(int n)
@@ -107,7 +118,13 @@ namespace Assignment1_F19
         {
             try
             {
-                // Write your code here
+                int[] subArray = new int[a.Length];
+
+                for (int i = 0; i < a.Length; i++)
+                {
+                    subArray[i] = a[i];
+
+                }
             }
             catch
             {
