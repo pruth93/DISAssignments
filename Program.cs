@@ -8,7 +8,7 @@ namespace Assignment1_F19
     {
         static void Main(string[] args)
         {
-            int a = 22, b = 33;
+            int a = 1, b = 22;
             printSelfDividingNumbers(a, b);
 
             int n2 = 5;
