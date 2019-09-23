@@ -92,7 +92,20 @@ namespace Assignment1_F19
         {
             try
             {
-                // Write your code here
+                for (int i = n; i > 0; i--)
+                {
+                    for (int j = 0; j < n - i; j++)
+                    {
+                        Console.Write(" ");
+                    }
+                    for (int j = 0; j < (i * 2) - 1; j++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+
             }
             catch
             {
@@ -104,7 +117,34 @@ namespace Assignment1_F19
         {
             try
             {
-                // Write your code here
+                int[] jewels = new int[S.Length];
+                int c = 0;
+                for (int i = 0; i < J.Length; i++)
+                {
+                    for (int j = 0; j < S.Length; j++)
+                    {
+                        if (J[i] == S[j])
+                        {
+                            jewels[c] = S[j];
+                            c++;
+
+                        }
+                    }
+                }
+                if (c != 0)
+                {
+                    Console.Write(c + " (Since ");
+                    for (int i = 0; i < c; i++)
+                    {
+                        Console.Write(jewels[i] + " ");
+                    }
+                    Console.WriteLine(" are jewels.)");
+                }
+                else
+                {
+                    Console.WriteLine(c);
+
+                }
             }
             catch
             {
