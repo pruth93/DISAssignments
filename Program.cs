@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Assignment1_F19
 {
@@ -32,7 +34,7 @@ namespace Assignment1_F19
          * function: printSelfDividingNumbers()
          * temp: Holds the number to be tested.
          * digit: Individual digits of the number.
-         * flag: True if number is self dividing.
+         * flag: True, if number is self dividing.
          */
         public static void printSelfDividingNumbers(int x, int y)
         {
@@ -40,11 +42,11 @@ namespace Assignment1_F19
             {
                 int temp, digit;
                 bool flag;
-                for (int i = x; i <= y; i++)
+                for (int i = x; i <= y; i++) // loop to check every number  in the given range.
                 {
                     flag = true;
                     temp = i;
-                    while (temp > 0)
+                    while (temp > 0) // loop to check every digit of the number.
                     {
                         digit = temp % 10;
                         if (digit == 0 || i % digit != 0)
@@ -54,7 +56,7 @@ namespace Assignment1_F19
                         temp = temp / 10;
                     }
                     if (flag)
-                        Console.WriteLine("" + i + " is a self dividing no. ");
+                        Console.WriteLine("" + i + " is a self-dividing no. ");
                 }
             }
             catch
@@ -64,16 +66,20 @@ namespace Assignment1_F19
             Console.WriteLine();
         }
 
+        /*
+         * function: printSeries()
+         * c: Count from 1 to the given number.
+         */
         public static void printSeries(int n)
         {
             try
             {
-                for (int i = 0, c = 1; i < n; i++)
+                for (int i = 0, c = 1; i < n; i++) // Outer loop to traverse till n.
                 {
-                    for (int j = 0; j < i && c <= n; j++, c++)
+                    for (int j = 0; j < i && c <= n; j++, c++) // Print number c times.
                     {
                         Console.Write(i);
-                        if (c != n) // to avoid the last comma
+                        if (c != n) // check to avoid the last comma.
                         {
                             Console.Write(", ");
                         }
@@ -88,24 +94,26 @@ namespace Assignment1_F19
 
         }
 
+        /*
+         * function: printTriangle()
+         */
         public static void printTriangle(int n)
         {
             try
             {
-                for (int i = n; i > 0; i--)
+                for (int i = n; i > 0; i--) // Loop to print infividual rows.
                 {
-                    for (int j = 0; j < n - i; j++)
+                    for (int j = 0; j < n - i; j++) // Loop to print space before the pattern.
                     {
                         Console.Write(" ");
                     }
-                    for (int j = 0; j < (i * 2) - 1; j++)
+                    for (int j = 0; j < (i * 2) - 1; j++) // Loop to print the pattern.
                     {
                         Console.Write("*");
                     }
                     Console.WriteLine();
                 }
                 Console.WriteLine();
-
             }
             catch
             {
@@ -113,17 +121,21 @@ namespace Assignment1_F19
             }
         }
 
+        /*
+         * function: printSeries()
+         * jewels: Store the matched jewels.
+         */
         public static int numJewelsInStones(int[] J, int[] S)
         {
             try
             {
                 int[] jewels = new int[S.Length];
                 int c = 0;
-                for (int i = 0; i < J.Length; i++)
+                for (int i = 0; i < J.Length; i++) // Traverse through every jewel.
                 {
-                    for (int j = 0; j < S.Length; j++)
+                    for (int j = 0; j < S.Length; j++) // Traverse through every stone.
                     {
-                        if (J[i] == S[j])
+                        if (J[i] == S[j]) // Compare jewels amd stones.
                         {
                             jewels[c] = S[j];
                             c++;
@@ -131,7 +143,7 @@ namespace Assignment1_F19
                         }
                     }
                 }
-                if (c != 0)
+                if (c != 0) // Output if jewels found
                 {
                     Console.Write(c + " (Since ");
                     for (int i = 0; i < c; i++)
@@ -143,26 +155,45 @@ namespace Assignment1_F19
                 else
                 {
                     Console.WriteLine(c);
-
                 }
             }
             catch
             {
                 Console.WriteLine("Exception occured while computing numJewelsInStones()");
             }
-
             return 0;
         }
 
+        /*
+         * function: getLargestCommonSubArray()
+         * temp: Temporary array for swap.
+         * subArray: Store largest common sub array.
+         */
         public static int[] getLargestCommonSubArray(int[] a, int[] b)
         {
             try
             {
+                if (b.Length < a.Length)
+                {
+                    int[] temp = b;
+                    b = a;
+                    a = temp;
+                }
                 int[] subArray = new int[a.Length];
 
                 for (int i = 0; i < a.Length; i++)
                 {
-                    subArray[i] = a[i];
+                    for (int j = 0; j < b.Length; j++)
+                        if (a[i] == b[j])
+                        {
+                            subArray[i] = a[i];
+                            //recur
+
+                        }
+                        else
+                        {
+
+                        }
 
                 }
             }
